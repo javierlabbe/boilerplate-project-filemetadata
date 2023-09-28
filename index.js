@@ -11,8 +11,10 @@ app.get('/', function (req, res) {
   res.sendFile(process.cwd() + '/views/index.html');
 });
 
+//Endpoints
+const routerMetadata = require(__dirname+'/routers/metadata.js')
 
-
+app.use('/api/fileanalyse', routerMetadata);
 
 const port = process.env.PORT || 3000;
 app.listen(port, function () {
